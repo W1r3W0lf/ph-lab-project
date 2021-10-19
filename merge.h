@@ -4,11 +4,17 @@
 
 typedef struct chunk {
 	int* start;
-	int size;
+	unsigned long size;
 }chunk;
+
+typedef struct chunk_list{
+	chunk* chunks;
+	unsigned long size;
+	unsigned long capacity;
+} chunk_list;
 
 void merge_thread(void* given_chunk);
 
-void merge_sort(int* memory, int size);
+void merge_sort(chunk*);
 
 #endif
