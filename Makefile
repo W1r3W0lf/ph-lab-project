@@ -3,15 +3,17 @@
 CC=gcc
 CFLAGS= -lpthread
 DEPS =
-OBJ = merge.o main.o
 
-%.o: %.c $(DEPS)
-	$(CC) -c -o $& $< $(CFLAGS)
 
-merge:
-	$(CC) -o $@ $^ $(CFLAGS)
+
+merge-run: merge.o
+	$(CC) -o $@ main.c merge.o -lpthread -g
+
+merge.o:
+	$(CC) -c merge.c merge.h -g
+
 
 clean:
-	rm merge $(OBJ)
+	rm merge.o merge-run merge.h.gch
 
 

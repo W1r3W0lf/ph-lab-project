@@ -13,8 +13,12 @@ typedef struct chunk_list{
 	unsigned long capacity;
 } chunk_list;
 
+void print_chunk(chunk* printed_chunk);
+
 void merge_thread(void* given_chunk);
 
 void merge_sort(chunk*);
+
+void final_merge_sort(chunk_list* sorted_chunks);
 
 #endif
