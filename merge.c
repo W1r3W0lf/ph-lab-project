@@ -27,28 +27,13 @@ void merge(chunk* dest, chunk* lhs){
 	unsigned long rhs_index = 0;
 	unsigned long lhs_index = 0;
 
-
-
-
 	for(unsigned long i = 0 ; i < new_chunk_size ; i++){
 
-
-		/*
-		if (rhs.size > rhs_index){
-			// If the right hand side runs out, then everything is sorted
-			break;
-		} else if (lhs->size > lhs_index && lhs->start[lhs_index] < rhs.start[rhs_index]){
-			dest->start[i] = lhs->start[lhs_index];
-			lhs_index++;
-		} else {
-			dest->start[i] = rhs.start[rhs_index];
-			rhs_index++;
-		}
-		*/
 		if (rhs.size <= rhs_index){
 			// If the right hand side runs out, then everything is sorted
 			break;
 		} else if (lhs->size <= lhs_index){
+			// This could be replaced with a memecpy
 			dest->start[i] = rhs.start[rhs_index];
 			rhs_index++;
 		} else if ( lhs->start[lhs_index] < rhs.start[rhs_index]){
@@ -106,9 +91,7 @@ void merge_sort(chunk* given_chunk){
 }
 
 void final_merge_sort(chunk_list* sorted_chunks){
-
 	for(unsigned long i = 1 ; i < sorted_chunks->size; i++){
 		merge(&sorted_chunks->chunks[0], &sorted_chunks->chunks[i]);
 	}
-
 }
