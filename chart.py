@@ -6,7 +6,7 @@ user_time = [7*60+32.457, 3*60+47.655, 2*60+35.695, 2*60 + 6.225, 60+56.782, 60+
 threads = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
 
 
-plt.title("Sorting 1M intigers with merge sort")
+plt.title("Sorting 1M integers with merge sort")
 
 plt.plot(threads, real_time, "b", label='real time')
 plt.plot(threads, user_time, "r", label='system time')
